@@ -10,18 +10,12 @@ namespace EATApp.Controllers
     {
         
 
-        public ActionResult ClassView()
+        public ActionResult LoginView()
         {
-            ViewBag.Message = "ClassView Page";
+            ViewBag.Message = "LoginView Page";
 
             return View();
         }
 
-        public ActionResult StudentView()
-        {
-            ViewBag.Message = "StudentView Page";
-
-            return View();
-        }
     }
 }

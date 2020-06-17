@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EATModelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="SessionID" />
+    </Key>
+    <Property Name="SessionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="StudentSessions" Relationship="Self.FK_StudentSession_Session" FromRole="Session" ToRole="StudentSession" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="StudentSessions" Relationship="Self.FK_StudentSession_Student" FromRole="Student" ToRole="StudentSession" />
+  </EntityType>
+  <EntityType Name="StudentSession">
+    <Key>
+      <PropertyRef Name="SessionID" />
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="SessionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="SignIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SignOut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Session" Relationship="Self.FK_StudentSession_Session" FromRole="StudentSession" ToRole="Session" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_StudentSession_Student" FromRole="StudentSession" ToRole="Student" />
+  </EntityType>
+  <Association Name="FK_StudentSession_Session">
+    <End Role="Session" Type="Self.Session" Multiplicity="1" />
+    <End Role="StudentSession" Type="Self.StudentSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="SessionID" />
+      </Principal>
+      <Dependent Role="StudentSession">
+        <PropertyRef Name="SessionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentSession_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="StudentSession" Type="Self.StudentSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentSession">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EATModelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Sessions" EntityType="Self.Session" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="StudentSessions" EntityType="Self.StudentSession" />
+    <AssociationSet Name="FK_StudentSession_Session" Association="Self.FK_StudentSession_Session">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="StudentSession" EntitySet="StudentSessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentSession_Student" Association="Self.FK_StudentSession_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="StudentSession" EntitySet="StudentSessions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -129,6 +129,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,10 +210,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\TeacherSide\StudentView.cshtml" />
-    <Content Include="Views\TeacherSide\ClassView.cshtml" />
-    <Content Include="Views\StudentSide\SignInView.cshtml" />
-    <Content Include="Views\Login\LoginView.cshtml" />
+    <Content Include="Views\Teacher\StudentView.cshtml" />
+    <Content Include="Views\Teacher\ClassView.cshtml" />
+    <Content Include="Views\Student\SignInView.cshtml" />
+    <Content Include="Views\Home\LoginView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
