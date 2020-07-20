@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EATApp.Models.studentsession>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Enter Code", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SignIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.session.Date)
+        </th>
+
+        <th></th>
+    </tr>
+     
+@foreach (var item in Model.Where(s=> s.student_StudentID.Contains("100100100"))) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.session.Date)
+        </td>
+
+
+    </tr>
+}
+
+</table>

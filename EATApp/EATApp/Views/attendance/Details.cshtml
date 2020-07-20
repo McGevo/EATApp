@@ -1,0 +1,50 @@
+﻿@model EATApp.Models.studentsession
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>studentsession</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SignIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignIn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignOut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.session.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.session.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.GivenName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.GivenName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

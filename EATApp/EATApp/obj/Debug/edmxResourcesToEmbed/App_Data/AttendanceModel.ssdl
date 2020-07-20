@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EATModelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="SessionID" />
+    </Key>
+    <Property Name="SessionID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="StartTime" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StudentSession">
+    <Key>
+      <PropertyRef Name="SessionID" />
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="SessionID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="SignIn" Type="varchar" MaxLength="50" />
+    <Property Name="SignOut" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_StudentSession_Session">
+    <End Role="Session" Type="Self.Session" Multiplicity="1" />
+    <End Role="StudentSession" Type="Self.StudentSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="SessionID" />
+      </Principal>
+      <Dependent Role="StudentSession">
+        <PropertyRef Name="SessionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentSession_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="StudentSession" Type="Self.StudentSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentSession">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EATModelModelStoreContainer">
+    <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentSession" EntityType="Self.StudentSession" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_StudentSession_Session" Association="Self.FK_StudentSession_Session">
+      <End Role="Session" EntitySet="Session" />
+      <End Role="StudentSession" EntitySet="StudentSession" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentSession_Student" Association="Self.FK_StudentSession_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="StudentSession" EntitySet="StudentSession" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
