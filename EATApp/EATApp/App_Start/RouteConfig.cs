@@ -16,7 +16,7 @@ namespace EATApp
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Student", action = "SignInView", id = UrlParameter.Optional }
+                defaults: new { controller = "attendance", action = "Create", id = UrlParameter.Optional }
             );
         }
     }

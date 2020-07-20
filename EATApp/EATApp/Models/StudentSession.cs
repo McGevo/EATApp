@@ -11,15 +11,38 @@ namespace EATApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class StudentSession
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class studentsession
     {
-        public string SessionID { get; set; }
-        public int StudentID { get; set; }
-        public string SignIn { get; set; }
-        public string SignOut { get; set; }
+        private string studentID;
+        private int sessionID;
+        private System.TimeSpan signIn;
+
+        public studentsession()
+        {
+            this.studentID = "DEFAULT";
+            this.sessionID = -1;
+            this.signIn = DateTime.Now.TimeOfDay;
+        }
+
+        [DisplayFormat(DataFormatString = "{0:hh\\:mm}", ApplyFormatInEditMode = true)]
+        public System.TimeSpan SignIn { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:hh\\:mm}", ApplyFormatInEditMode = true)]
+        public Nullable<System.TimeSpan> SignOut { get; set; }
+        public int session_sessionID { get; set; }
+        public string student_StudentID { get; set; }
     
-        public virtual Session Session { get; set; }
-        public virtual Student Student { get; set; }
+        public virtual session session { get; set; }
+        public virtual student student { get; set; }
+
+        public studentsession(string studentID, int sessionID, System.TimeSpan signIn)
+        {
+            this.student_StudentID = studentID;
+            this.session_sessionID = sessionID;
+            this.SignIn = signIn;
+        }
+
     }
 }

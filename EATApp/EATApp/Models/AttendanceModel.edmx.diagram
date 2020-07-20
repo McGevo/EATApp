@@ -4,12 +4,51 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3c8f78ec89c148ffbd370783aa9dca47" Name="Diagram1">
-        <EntityTypeShape EntityType="EATModelModel.Session" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EATModelModel.Student" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EATModelModel.StudentSession" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="EATModelModel.FK_StudentSession_Session" ManuallyRouted="false" />
-        <AssociationConnector Association="EATModelModel.FK_StudentSession_Student" ManuallyRouted="false" />
+      <Diagram DiagramId="73e6de4e1c244a5fa2003620de0f7231" Name="Diagram1">
+        <EntityTypeShape EntityType="TafeDBModel.campu" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.competency" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.competency_qualification" Width="1.5" PointX="13" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.competency_type" Width="1.5" PointX="10.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.crn_detail" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.crn_session_timetable" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.day_of_week" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.department" Width="1.5" PointX="12.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.lecturer" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.qualification" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.session" Width="1.5" PointX="8.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.student" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.student_grade" Width="1.5" PointX="10.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.student_studyplan" Width="1.5" PointX="10.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.studentsession" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.studyplan_qualification" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.studyplan_subject" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.subject" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.subject_qualification" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TafeDBModel.term_datetime" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
+        <AssociationConnector Association="TafeDBModel.crn_detail_FK_CRNDetail_CampusCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.crn_session_timetable_FK_Session_CampusCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.crn_detail_FK_CRNDetail_TafeCompCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.competency_qualification_fk_competency_qualification_competency_type1" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.crn_detail_FK_CRNDetail_SubjectCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.crn_detail_FK_CRNDetail_TermStart" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.crn_session_timetable_FK_Session_CRN" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.student_grade_FK_StudentGrade_CRN" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.crn_session_timetable_FK_Session_DayCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.crn_session_timetable_FK_Session_TermStart" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.session_FK_session_lecturer" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.student_studyplan_FK_StudentStudyplan_QualCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.studyplan_qualification_FK_StudyPlanQual_QualCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.subject_qualification_FK_SubjQual_QualCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.studentsession_fk_StudentSession_session1" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.student_grade_FK_StudentGrade_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.student_studyplan_FK_StudentStudyplan_StudentID" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.studentsession_fk_StudentSession_student1" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.student_grade_FK_StudentGrade_TermStart" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.student_studyplan_FK_StudentStudyplan_TermStart" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.studyplan_subject_FK_StudyPlanSubject_StudyPlanCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.studyplan_subject_FK_StudyPlanSubject_SubjectCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.subject_qualification_FK_SubjQual_SubjectCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TafeDBModel.subject_competency" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

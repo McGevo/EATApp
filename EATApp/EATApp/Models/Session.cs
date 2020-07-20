@@ -11,20 +11,25 @@ namespace EATApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Session
+    using System.Data.Entity.Core.Metadata.Edm;
+
+    public partial class session
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Session()
+        public session()
         {
-            this.StudentSessions = new HashSet<StudentSession>();
+            this.studentsessions = new HashSet<studentsession>();
         }
     
-        public string SessionID { get; set; }
+        public int sessionID { get; set; }
         public string Date { get; set; }
-        public string StartTime { get; set; }
+        public System.TimeSpan StartTime { get; set; }
+        public string LecturerID { get; set; }
+        public string Code { get; set; }
     
+        public virtual lecturer lecturer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentSession> StudentSessions { get; set; }
+        public virtual ICollection<studentsession> studentsessions { get; set; }
+
     }
 }

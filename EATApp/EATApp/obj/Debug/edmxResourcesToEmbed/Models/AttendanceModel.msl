@@ -1,33 +1,223 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EATModelModelStoreContainer" CdmEntityContainer="EATModelEntities">
-    <EntitySetMapping Name="Sessions">
-      <EntityTypeMapping TypeName="EATModelModel.Session">
-        <MappingFragment StoreEntitySet="Session">
-          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+  <EntityContainerMapping StorageEntityContainer="TafeDBModelStoreContainer" CdmEntityContainer="TafeDBEntities">
+    <EntitySetMapping Name="campus">
+      <EntityTypeMapping TypeName="TafeDBModel.campu">
+        <MappingFragment StoreEntitySet="campus">
+          <ScalarProperty Name="CampusCode" ColumnName="CampusCode" />
+          <ScalarProperty Name="CampusName" ColumnName="CampusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="competencies">
+      <EntityTypeMapping TypeName="TafeDBModel.competency">
+        <MappingFragment StoreEntitySet="competency">
+          <ScalarProperty Name="TafeCompCode" ColumnName="TafeCompCode" />
+          <ScalarProperty Name="NationalCompCode" ColumnName="NationalCompCode" />
+          <ScalarProperty Name="CompetencyName" ColumnName="CompetencyName" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="competency_qualification">
+      <EntityTypeMapping TypeName="TafeDBModel.competency_qualification">
+        <MappingFragment StoreEntitySet="competency_qualification">
+          <ScalarProperty Name="QualCode" ColumnName="QualCode" />
+          <ScalarProperty Name="NationalCompCode" ColumnName="NationalCompCode" />
+          <ScalarProperty Name="CompTypeCode" ColumnName="CompTypeCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="competency_type">
+      <EntityTypeMapping TypeName="TafeDBModel.competency_type">
+        <MappingFragment StoreEntitySet="competency_type">
+          <ScalarProperty Name="CompTypeCode" ColumnName="CompTypeCode" />
+          <ScalarProperty Name="CompTypeDescription" ColumnName="CompTypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crn_detail">
+      <EntityTypeMapping TypeName="TafeDBModel.crn_detail">
+        <MappingFragment StoreEntitySet="crn_detail">
+          <ScalarProperty Name="CRN" ColumnName="CRN" />
+          <ScalarProperty Name="TafeCompCode" ColumnName="TafeCompCode" />
+          <ScalarProperty Name="TermCodeStart" ColumnName="TermCodeStart" />
+          <ScalarProperty Name="TermYearStart" ColumnName="TermYearStart" />
+          <ScalarProperty Name="TermCodeEnd" ColumnName="TermCodeEnd" />
+          <ScalarProperty Name="TermYearEnd" ColumnName="TermYearEnd" />
+          <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+          <ScalarProperty Name="CampusCode" ColumnName="CampusCode" />
+          <ScalarProperty Name="LecturerID" ColumnName="LecturerID" />
+          <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+          <ScalarProperty Name="FreezeDate" ColumnName="FreezeDate" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crn_session_timetable">
+      <EntityTypeMapping TypeName="TafeDBModel.crn_session_timetable">
+        <MappingFragment StoreEntitySet="crn_session_timetable">
+          <ScalarProperty Name="CRN" ColumnName="CRN" />
+          <ScalarProperty Name="TermCodeStart" ColumnName="TermCodeStart" />
+          <ScalarProperty Name="TermYearStart" ColumnName="TermYearStart" />
+          <ScalarProperty Name="DayCode" ColumnName="DayCode" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="CampusCode" ColumnName="CampusCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="day_of_week">
+      <EntityTypeMapping TypeName="TafeDBModel.day_of_week">
+        <MappingFragment StoreEntitySet="day_of_week">
+          <ScalarProperty Name="DayCode" ColumnName="DayCode" />
+          <ScalarProperty Name="DayShortName" ColumnName="DayShortName" />
+          <ScalarProperty Name="DayLongName" ColumnName="DayLongName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departments">
+      <EntityTypeMapping TypeName="TafeDBModel.department">
+        <MappingFragment StoreEntitySet="department">
+          <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+          <ScalarProperty Name="Department1" ColumnName="Department" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lecturers">
+      <EntityTypeMapping TypeName="TafeDBModel.lecturer">
+        <MappingFragment StoreEntitySet="lecturer">
+          <ScalarProperty Name="LecturerID" ColumnName="LecturerID" />
+          <ScalarProperty Name="GivenName" ColumnName="GivenName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qualifications">
+      <EntityTypeMapping TypeName="TafeDBModel.qualification">
+        <MappingFragment StoreEntitySet="qualification">
+          <ScalarProperty Name="QualCode" ColumnName="QualCode" />
+          <ScalarProperty Name="NationalQualCode" ColumnName="NationalQualCode" />
+          <ScalarProperty Name="TafeQualCode" ColumnName="TafeQualCode" />
+          <ScalarProperty Name="QualName" ColumnName="QualName" />
+          <ScalarProperty Name="TotalUnits" ColumnName="TotalUnits" />
+          <ScalarProperty Name="CoreUnits" ColumnName="CoreUnits" />
+          <ScalarProperty Name="ElectedUnits" ColumnName="ElectedUnits" />
+          <ScalarProperty Name="ReqListedElectedUnits" ColumnName="ReqListedElectedUnits" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sessions">
+      <EntityTypeMapping TypeName="TafeDBModel.session">
+        <MappingFragment StoreEntitySet="session">
+          <ScalarProperty Name="sessionID" ColumnName="sessionID" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="LecturerID" ColumnName="LecturerID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Students">
-      <EntityTypeMapping TypeName="EATModelModel.Student">
-        <MappingFragment StoreEntitySet="Student">
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="TafeDBModel.student">
+        <MappingFragment StoreEntitySet="student">
           <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="GivenName" ColumnName="GivenName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="StudentSessions">
-      <EntityTypeMapping TypeName="EATModelModel.StudentSession">
-        <MappingFragment StoreEntitySet="StudentSession">
-          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+    <EntitySetMapping Name="student_grade">
+      <EntityTypeMapping TypeName="TafeDBModel.student_grade">
+        <MappingFragment StoreEntitySet="student_grade">
           <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="CRN" ColumnName="CRN" />
+          <ScalarProperty Name="TermCode" ColumnName="TermCode" />
+          <ScalarProperty Name="TermYear" ColumnName="TermYear" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="GradeDate" ColumnName="GradeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_studyplan">
+      <EntityTypeMapping TypeName="TafeDBModel.student_studyplan">
+        <MappingFragment StoreEntitySet="student_studyplan">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="QualCode" ColumnName="QualCode" />
+          <ScalarProperty Name="TermCodeStart" ColumnName="TermCodeStart" />
+          <ScalarProperty Name="TermYearStart" ColumnName="TermYearStart" />
+          <ScalarProperty Name="EnrolmentType" ColumnName="EnrolmentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="studentsessions">
+      <EntityTypeMapping TypeName="TafeDBModel.studentsession">
+        <MappingFragment StoreEntitySet="studentsession">
           <ScalarProperty Name="SignIn" ColumnName="SignIn" />
           <ScalarProperty Name="SignOut" ColumnName="SignOut" />
+          <ScalarProperty Name="session_sessionID" ColumnName="session_sessionID" />
+          <ScalarProperty Name="student_StudentID" ColumnName="student_StudentID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="studyplan_qualification">
+      <EntityTypeMapping TypeName="TafeDBModel.studyplan_qualification">
+        <MappingFragment StoreEntitySet="studyplan_qualification">
+          <ScalarProperty Name="StudyPlanCode" ColumnName="StudyPlanCode" />
+          <ScalarProperty Name="QualCode" ColumnName="QualCode" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="studyplan_subject">
+      <EntityTypeMapping TypeName="TafeDBModel.studyplan_subject">
+        <MappingFragment StoreEntitySet="studyplan_subject">
+          <ScalarProperty Name="StudyPlanCode" ColumnName="StudyPlanCode" />
+          <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+          <ScalarProperty Name="TimingSemester" ColumnName="TimingSemester" />
+          <ScalarProperty Name="TimingSemesterTerm" ColumnName="TimingSemesterTerm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subjects">
+      <EntityTypeMapping TypeName="TafeDBModel.subject">
+        <MappingFragment StoreEntitySet="subject">
+          <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+          <ScalarProperty Name="SubjectDescription" ColumnName="SubjectDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subject_qualification">
+      <EntityTypeMapping TypeName="TafeDBModel.subject_qualification">
+        <MappingFragment StoreEntitySet="subject_qualification">
+          <ScalarProperty Name="QualCode" ColumnName="QualCode" />
+          <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+          <ScalarProperty Name="UsageType" ColumnName="UsageType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="term_datetime">
+      <EntityTypeMapping TypeName="TafeDBModel.term_datetime">
+        <MappingFragment StoreEntitySet="term_datetime">
+          <ScalarProperty Name="TermCode" ColumnName="TermCode" />
+          <ScalarProperty Name="TermYear" ColumnName="TermYear" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="SemesterCode" ColumnName="SemesterCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="subject_competency" TypeName="TafeDBModel.subject_competency" StoreEntitySet="subject_competency">
+      <EndProperty Name="subject">
+        <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+      </EndProperty>
+      <EndProperty Name="competency">
+        <ScalarProperty Name="TafeCompCode" ColumnName="TafeCompCode" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

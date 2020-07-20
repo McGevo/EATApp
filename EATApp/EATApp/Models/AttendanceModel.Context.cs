@@ -13,10 +13,10 @@ namespace EATApp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EATModelEntities : DbContext
+    public partial class TafeDBEntities : DbContext
     {
-        public EATModelEntities()
-            : base("name=EATModelEntities")
+        public TafeDBEntities()
+            : base("name=TafeDBEntities")
         {
         }
     
@@ -25,8 +25,25 @@ namespace EATApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Session> Sessions { get; set; }
-        public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<StudentSession> StudentSessions { get; set; }
+        public virtual DbSet<campu> campus { get; set; }
+        public virtual DbSet<competency> competencies { get; set; }
+        public virtual DbSet<competency_qualification> competency_qualification { get; set; }
+        public virtual DbSet<competency_type> competency_type { get; set; }
+        public virtual DbSet<crn_detail> crn_detail { get; set; }
+        public virtual DbSet<crn_session_timetable> crn_session_timetable { get; set; }
+        public virtual DbSet<day_of_week> day_of_week { get; set; }
+        public virtual DbSet<department> departments { get; set; }
+        public virtual DbSet<lecturer> lecturers { get; set; }
+        public virtual DbSet<qualification> qualifications { get; set; }
+        public virtual DbSet<session> sessions { get; set; }
+        public virtual DbSet<student> students { get; set; }
+        public virtual DbSet<student_grade> student_grade { get; set; }
+        public virtual DbSet<student_studyplan> student_studyplan { get; set; }
+        public virtual DbSet<studentsession> studentsessions { get; set; }
+        public virtual DbSet<studyplan_qualification> studyplan_qualification { get; set; }
+        public virtual DbSet<studyplan_subject> studyplan_subject { get; set; }
+        public virtual DbSet<subject> subjects { get; set; }
+        public virtual DbSet<subject_qualification> subject_qualification { get; set; }
+        public virtual DbSet<term_datetime> term_datetime { get; set; }
     }
 }

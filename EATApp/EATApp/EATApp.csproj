@@ -128,8 +128,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\attendanceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,15 +149,67 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AttendanceModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Session.cs">
+    <Compile Include="Models\campu.cs">
       <DependentUpon>AttendanceModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Student.cs">
+    <Compile Include="Models\competency.cs">
       <DependentUpon>AttendanceModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StudentSession.cs">
+    <Compile Include="Models\competency_qualification.cs">
       <DependentUpon>AttendanceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\competency_type.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\crn_detail.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\crn_session_timetable.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\day_of_week.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\department.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lecturer.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\qualification.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\session.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\student.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\studentsession.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\student_grade.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\student_studyplan.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\studyplan_qualification.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\studyplan_subject.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subject.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subject_qualification.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\term_datetime.cs">
+      <DependentUpon>AttendanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Participants\Recording.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,8 +223,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\AttendanceModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AttendanceModel.Context.cs</LastGenOutput>
       <DependentUpon>AttendanceModel.edmx</DependentUpon>
+      <LastGenOutput>AttendanceModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\AttendanceModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -188,6 +240,7 @@
     <Content Include="Models\AttendanceModel.edmx.diagram">
       <DependentUpon>AttendanceModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -212,8 +265,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Teacher\StudentView.cshtml" />
     <Content Include="Views\Teacher\ClassView.cshtml" />
-    <Content Include="Views\Student\SignInView.cshtml" />
     <Content Include="Views\Home\LoginView.cshtml" />
+    <Content Include="Views\Teacher\View.cshtml" />
+    <Content Include="Views\attendance\Create.cshtml" />
+    <Content Include="Views\attendance\Delete.cshtml" />
+    <Content Include="Views\attendance\Details.cshtml" />
+    <Content Include="Views\attendance\Edit.cshtml" />
+    <Content Include="Views\attendance\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
